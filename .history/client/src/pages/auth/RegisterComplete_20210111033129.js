@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { auth } from '../../firebase';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/React-Toastify.css';
+import { toast } from 'react-toastify';
 
-const Register = () => {
-	const [email, setEmail] = useState('');
+const RegisterComplete = (history) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-	const handleSubmit = (e) => {
+  useState(() => {})
+  
+
+
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const config = {
-			url: 'http://localhost:3000/register/',
-			handleCodeInApp: true,
-		};
+
 	};
 
-	const registerForm = () => (
+	const completeRegisterForm = () => (
 		<form onSubmit={handleSubmit}>
 			<input
 				type='email'
@@ -34,6 +35,7 @@ const Register = () => {
 			<div class='row'>
 				<div class='col-md-6 offset-md-3'>
 					<h4>Register</h4>
+
 					{registerForm()}
 				</div>
 			</div>
@@ -41,4 +43,4 @@ const Register = () => {
 	);
 };
 
-export default Register;
+export default RegisterComplete;
